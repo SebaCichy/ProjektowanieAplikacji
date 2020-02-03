@@ -6,7 +6,6 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using Reserv.DAL;
 using Reserv.Models;
 
 
@@ -14,7 +13,7 @@ namespace Reserv.Controllers
 {
     public class ReservationController : Controller
     {
-        private ReservContext db = new ReservContext();
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Reservation
         public ActionResult Index()

@@ -25,6 +25,11 @@ namespace Reserv.Models
         {
         }
 
+        public DbSet<Users> Users { get; set; }
+        public DbSet<Reservation> Reservations { get; set; }
+        public DbSet<Cars> Cars { get; set; }
+
+
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
