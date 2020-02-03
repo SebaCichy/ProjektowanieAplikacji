@@ -10,14 +10,16 @@ namespace Reserv.Models
     [Table("Reservations")]
     public class Reservation
     {
-        public int CarID { get; set; }
-        public int UserID { get; set; }
         [Key]
-        public int? ReservationID { get; set; }
+        public int ReservationID { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
-        public virtual Cars Cars { get; set; }
-        public virtual Users Users { get; set; }
+        [ForeignKey("Car")]
+        public int CarID { get; set; }
+        public virtual Cars Car { get; set; }
+        [ForeignKey("User")]
+        public string UserID { get; set; }
+        public virtual ApplicationUser User { get; set; }
         [NotMapped]
         public List<Cars> CarsCollections { get; set; }
 

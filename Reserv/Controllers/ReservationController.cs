@@ -18,7 +18,7 @@ namespace Reserv.Controllers
         // GET: Reservation
         public ActionResult Index()
         {
-            var reservations = db.Reservations.Include(r => r.Cars).Include(r => r.Users);
+            var reservations = db.Reservations.Include(r => r.Car).Include(r => r.User);
             return View(reservations.ToList());
         }
 
@@ -41,7 +41,7 @@ namespace Reserv.Controllers
         public ActionResult Create()
         {
             ViewBag.CarID = new SelectList(db.Cars, "CarID", "RegistrationNumber");
-            ViewBag.UserID = new SelectList(db.Users, "UserID", "Name");
+            ViewBag.UserID = new SelectList(db.Users, "Id", "UserName");
                 return View();
         }
 
@@ -60,7 +60,7 @@ namespace Reserv.Controllers
             }
 
             ViewBag.CarID = new SelectList(db.Cars, "CarID", "RegistrationNumber", reservation.CarID);
-            ViewBag.UserID = new SelectList(db.Users, "UserID", "Name", reservation.UserID);
+            ViewBag.UserID = new SelectList(db.Users, "Id", "UserName", reservation.UserID);
             return View(reservation);
         }
 
@@ -77,7 +77,7 @@ namespace Reserv.Controllers
                 return HttpNotFound();
             }
             ViewBag.CarID = new SelectList(db.Cars, "CarID", "RegistrationNumber", reservation.CarID);
-            ViewBag.UserID = new SelectList(db.Users, "UserID", "Name", reservation.UserID);
+            ViewBag.UserID = new SelectList(db.Users, "Id", "UserName", reservation.UserID);
             return View(reservation);
         }
 
@@ -95,7 +95,7 @@ namespace Reserv.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.CarID = new SelectList(db.Cars, "CarID", "RegistrationNumber", reservation.CarID);
-            ViewBag.UserID = new SelectList(db.Users, "UserID", "Name", reservation.UserID);
+            ViewBag.UserID = new SelectList(db.Users, "Id", "UserName", reservation.UserID);
             return View(reservation);
         }
 
