@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Reserv.Models.Reservation>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Cars.RegistrationNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Users.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StartDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EndDate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cars.RegistrationNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Users.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StartDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EndDate)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ReservationID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ReservationID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ReservationID })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Reserv.Models.Cars>
+
+@{
+    ViewBag.Title = "Index";
+}
+@{
+    if (!User.Identity.IsAuthenticated)
+    {
+        Response.Redirect("~/Account/Login?returnUrl="
+            + Request.Url.LocalPath);
+    }
+}
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.RegistrationNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Brand)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Model)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Available)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.RegistrationNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Brand)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Model)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Available)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.CarID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.CarID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.CarID })
+            </td>
+        </tr>
+    }
+
+</table>

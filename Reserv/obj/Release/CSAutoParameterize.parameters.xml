@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="ReservContext-Web.config Connection String" description="ReservContext Parametry połączenia używane w pliku web.config przez aplikację w celu uzyskiwania dostępu do bazy danych." defaultValue="Data Source=(LocalDb)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Reserv.mdf;Initial Catalog=Reserv;Integrated Security=True" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Norbert\\source\\repos\\Reserv\\Reserv\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='ReservContext']/@connectionString" />
+  </parameter>
+</parameters>
